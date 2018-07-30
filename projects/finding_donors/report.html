@@ -11813,7 +11813,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Import libraries necessary for this project</span>
@@ -11931,7 +11931,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># TODO: Total number of records</span>
@@ -11950,7 +11950,7 @@ div#notebook {
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Total number of records: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n_records</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Individuals making more than $50,000: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n_greater_50k</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Individuals making at most $50,000: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n_at_most_50k</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Percentage of individuals making more than $50,000: </span><span class="si">{}</span><span class="s2">%&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">greater_percent</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Percentage of individuals making more than $50,000: </span><span class="si">{}</span><span class="s2">%&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">greater_percent</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span><span class="mi">2</span><span class="p">)))</span>
 </pre></div>
 
 </div>
@@ -11970,7 +11970,7 @@ div#notebook {
 <pre>Total number of records: 45222
 Individuals making more than $50,000: 11208
 Individuals making at most $50,000: 34014
-Percentage of individuals making more than $50,000: 0.2478439697492371%
+Percentage of individuals making more than $50,000: 24.78%
 </pre>
 </div>
 </div>
@@ -14116,7 +14116,7 @@ Based on the graphs the Gradient Boosting (Adaboost) has the highest accuracy an
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong> 
-Adaboost uses decision trees in ensemble method. Decision trees (DT) are models that take a training set of data and ask questions to seperate out who is making 50k or more and who is not. The DT will use different attributes of the data (age, gender, etc.) to create a accurate guess of who makes more than 50k and who does not. Once this model is made new data (people) are entered in and the model makes educated guesses if they make more or less than 50K. Ensemble method takes many guesses that are slightly better than 50% and uses them to create a more accurate guess overall.</p>
+Adaboost uses decision trees in ensemble method. Decision trees (DT) are models that take a training set of data and ask questions to seperate out who is making 50k or more and who is not. The DT will use different attributes of the data (age, gender, etc.) to create a accurate guess of who makes more than 50k and who does not. Once this model is made new data (people) are entered in and the model makes educated guesses if they make more or less than 50K. Ensemble method takes many DTs that have guesses greater than 50% and creates a stronger guess than the individual decision trees make.</p>
 
 </div>
 </div>
@@ -14148,7 +14148,7 @@ Adaboost uses decision trees in ensemble method. Decision trees (DT) are models 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">grid_search</span>
@@ -14159,7 +14159,7 @@ Adaboost uses decision trees in ensemble method. Decision trees (DT) are models 
 <span class="n">clf</span> <span class="o">=</span> <span class="n">AdaBoostClassifier</span><span class="p">(</span><span class="n">n_estimators</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span><span class="n">learning_rate</span> <span class="o">=</span> <span class="o">.</span><span class="mi">01</span><span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">17</span><span class="p">)</span>
 <span class="c1"># TODO: Create the parameters list you wish to tune, using a dictionary if needed.</span>
 <span class="c1"># HINT: parameters = {&#39;parameter_1&#39;: [value1, value2], &#39;parameter_2&#39;: [value1, value2]}</span>
-<span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;n_estimators&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="s1">&#39;learning_rate&#39;</span><span class="p">:</span> <span class="p">[</span><span class="o">.</span><span class="mi">01</span><span class="p">,</span> <span class="mi">1</span><span class="p">]}</span>
+<span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;n_estimators&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1000</span><span class="p">,</span><span class="mi">500</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="s1">&#39;learning_rate&#39;</span><span class="p">:</span> <span class="p">[</span><span class="o">.</span><span class="mi">01</span><span class="p">,</span><span class="o">.</span><span class="mi">05</span><span class="p">,</span> <span class="mi">1</span><span class="p">]}</span>
 
 <span class="c1"># TODO: Make an fbeta_score scoring object using make_scorer()</span>
 <span class="n">scorer</span> <span class="o">=</span> <span class="n">make_scorer</span><span class="p">(</span><span class="n">fbeta_score</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
@@ -14201,19 +14201,19 @@ Adaboost uses decision trees in ensemble method. Decision trees (DT) are models 
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Fitting 2 folds for each of 4 candidates, totalling 8 fits
+<pre>Fitting 2 folds for each of 9 candidates, totalling 18 fits
 [CV] learning_rate=0.01, n_estimators=1000 ...........................
 [CV] learning_rate=0.01, n_estimators=1000 ...........................
+[CV] learning_rate=0.01, n_estimators=500 ............................
+[CV] learning_rate=0.01, n_estimators=500 ............................
 [CV] learning_rate=0.01, n_estimators=100 ............................
 [CV] learning_rate=0.01, n_estimators=100 ............................
-[CV] learning_rate=1, n_estimators=1000 ..............................
-[CV] learning_rate=1, n_estimators=1000 ..............................
-[CV] learning_rate=1, n_estimators=100 ...............................
-[CV] learning_rate=1, n_estimators=100 ...............................
-[CV] ... learning_rate=0.01, n_estimators=100, score=0.461806 -   5.6s
-[CV] ...... learning_rate=1, n_estimators=100, score=0.728503 -   5.5s
-[CV] ...... learning_rate=1, n_estimators=100, score=0.744080 -   5.5s
-[CV] ... learning_rate=0.01, n_estimators=100, score=0.476839 -   5.6s
+[CV] learning_rate=0.05, n_estimators=1000 ...........................
+[CV] learning_rate=0.05, n_estimators=1000 ...........................
+[CV] ... learning_rate=0.01, n_estimators=100, score=0.461806 -   7.2s
+[CV] ... learning_rate=0.01, n_estimators=100, score=0.476839 -   7.2s
+[CV] learning_rate=0.05, n_estimators=500 ............................
+[CV] learning_rate=0.05, n_estimators=500 ............................
 </pre>
 </div>
 </div>
@@ -14224,9 +14224,7 @@ Adaboost uses decision trees in ensemble method. Decision trees (DT) are models 
 
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>[Parallel(n_jobs=-1)]: Done   2 out of   8 | elapsed:    5.8s remaining:   17.4s
-[Parallel(n_jobs=-1)]: Done   3 out of   8 | elapsed:    5.8s remaining:    9.7s
-[Parallel(n_jobs=-1)]: Done   4 out of   8 | elapsed:    5.8s remaining:    5.8s
+<pre>[Parallel(n_jobs=-1)]: Done   2 tasks      | elapsed:    7.6s
 </pre>
 </div>
 </div>
@@ -14237,9 +14235,18 @@ Adaboost uses decision trees in ensemble method. Decision trees (DT) are models 
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[CV] ..... learning_rate=1, n_estimators=1000, score=0.768528 -  29.2s
-[CV] ..... learning_rate=1, n_estimators=1000, score=0.740644 -  29.2s
-[CV] .. learning_rate=0.01, n_estimators=1000, score=0.716310 -  29.5s
+<pre>[CV] ... learning_rate=0.01, n_estimators=500, score=0.703024 -  35.3s
+[CV] ... learning_rate=0.01, n_estimators=500, score=0.690349 -  35.5s
+[CV] learning_rate=0.05, n_estimators=100 ............................
+[CV] learning_rate=0.05, n_estimators=100 ............................
+[CV] ... learning_rate=0.05, n_estimators=100, score=0.691313 -   5.5s
+[CV] learning_rate=1, n_estimators=1000 ..............................
+[CV] ... learning_rate=0.05, n_estimators=500, score=0.715749 -  33.6s
+[CV] ... learning_rate=0.05, n_estimators=100, score=0.709371 -   5.6s
+[CV] ... learning_rate=0.05, n_estimators=500, score=0.734960 -  33.5s
+[CV] learning_rate=1, n_estimators=1000 ..............................
+[CV] learning_rate=1, n_estimators=500 ...............................
+[CV] learning_rate=1, n_estimators=500 ...............................
 </pre>
 </div>
 </div>
@@ -14250,8 +14257,8 @@ Adaboost uses decision trees in ensemble method. Decision trees (DT) are models 
 
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>[Parallel(n_jobs=-1)]: Done   5 out of   8 | elapsed:   29.4s remaining:   17.6s
-[Parallel(n_jobs=-1)]: Done   6 out of   8 | elapsed:   29.4s remaining:    9.8s
+<pre>[Parallel(n_jobs=-1)]: Done   5 out of  18 | elapsed:   41.2s remaining:  1.8min
+[Parallel(n_jobs=-1)]: Done   7 out of  18 | elapsed:   41.3s remaining:  1.1min
 </pre>
 </div>
 </div>
@@ -14262,7 +14269,10 @@ Adaboost uses decision trees in ensemble method. Decision trees (DT) are models 
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[CV] .. learning_rate=0.01, n_estimators=1000, score=0.726852 -  29.6s
+<pre>[CV] .. learning_rate=0.05, n_estimators=1000, score=0.720409 - 1.1min
+[CV] learning_rate=1, n_estimators=100 ...............................
+[CV] .. learning_rate=0.05, n_estimators=1000, score=0.736264 - 1.1min
+[CV] .. learning_rate=0.01, n_estimators=1000, score=0.726852 - 1.1min
 </pre>
 </div>
 </div>
@@ -14273,8 +14283,79 @@ Adaboost uses decision trees in ensemble method. Decision trees (DT) are models 
 
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>[Parallel(n_jobs=-1)]: Done   8 out of   8 | elapsed:   29.7s remaining:    0.0s
-[Parallel(n_jobs=-1)]: Done   8 out of   8 | elapsed:   29.7s finished
+<pre>[Parallel(n_jobs=-1)]: Done   9 out of  18 | elapsed:  1.1min remaining:  1.1min
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[CV] learning_rate=1, n_estimators=100 ...............................
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>[Parallel(n_jobs=-1)]: Done  11 out of  18 | elapsed:  1.1min remaining:   43.1s
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[CV] .. learning_rate=0.01, n_estimators=1000, score=0.716310 - 1.1min
+[CV] ...... learning_rate=1, n_estimators=100, score=0.728503 -   6.8s
+[CV] ...... learning_rate=1, n_estimators=100, score=0.744080 -   6.7s
+[CV] ...... learning_rate=1, n_estimators=500, score=0.760417 -  33.1s
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>[Parallel(n_jobs=-1)]: Done  13 out of  18 | elapsed:  1.2min remaining:   28.6s
+[Parallel(n_jobs=-1)]: Done  15 out of  18 | elapsed:  1.2min remaining:   14.9s
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[CV] ...... learning_rate=1, n_estimators=500, score=0.740063 -  33.5s
+[CV] ..... learning_rate=1, n_estimators=1000, score=0.740644 -  48.1s
+[CV] ..... learning_rate=1, n_estimators=1000, score=0.768528 -  48.1s
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>[Parallel(n_jobs=-1)]: Done  18 out of  18 | elapsed:  1.5min finished
 </pre>
 </div>
 </div>

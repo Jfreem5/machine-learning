@@ -13760,7 +13760,7 @@ For Index 90, we can see that this customer heavily frozen far above the mean an
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer:</strong> I selected Detergent Paper, as it was the only good that did not seem to have perishables. The model scored 67.5% which makes it a good but not great score and make it an important feature for prediction.</p>
+<p><strong>Answer:</strong> I selected Detergent Paper, as it was the only good that did not seem to have perishables. The model scored 67.5% which makes it a good but not great score and could be removed if other correlated features are presented.</p>
 
 </div>
 </div>
@@ -14979,7 +14979,7 @@ Name: Explained Variance, dtype: float64
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong> 
 The first four principle components have 44.30%,26.38%,12.31%, and 10.12% variance and the first two together have 70.68%.</p>
-<p>The first component is dominated by the negatively weighted detergent papers with the fresh and frozen also contributing less negative weights these three variables were closely correlated. The second is most negatively weighted by the fresh and has weaker negative weights on frozen and delicatessen. The third has strong negative on fresh and strong positive on delicatessen. The fourth has strong positive for frozen and a weaker negative for delicatessen. The fifth has very strong positive for frozen and weaker negative for detergent papers. The final dimention has very strong positive for grocery and weaker negative for milk.</p>
+<p>The first component is dominated by the negatively weighted detergent papers with the milk and grocery also contributing less negative weights these three variables showing low customer spend and most of it being fresh and frozen. The second is most negatively weighted by the fresh and has weaker negative weights on frozen and delicatessen showing a low customer spend with detergent paper and grocery making for least negative . The third has strong negative on fresh and strong positive on delicatessen showing a Bar type resturant. The fourth has strong positive for frozen and a weaker negative for delicatessen which seems to show more food cart/truck behaviours.</p>
 
 </div>
 </div>
@@ -15666,7 +15666,7 @@ I believe that the predicted clusters fit the samples well.</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer:</strong> We can assume that the two different segments will react differently. The zero segment buys more overall and is likely to buy more regularly. We can also see that the zero segment buys high quantities of milk so they are going to need resupply more often as it is a highly perishable item.</p>
+<p><strong>Answer:</strong> We can assume that the two different segments will react differently. The zero segment buys more overall and is likely to buy more regularly. The best way to test is to take a sample of customers from the middle of each cluster and put them on a 3 day a week trail. We can compare the three day a week and 5 day a week from each customer segement and check how they respond.</p>
 
 </div>
 </div>
